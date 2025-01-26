@@ -1,0 +1,88 @@
+<app-toolbar></app-toolbar>
+
+
+
+<div style="display: flex; justify-content: space-around; align-items: center; margin-top: 40px;">
+    <button (click)="openDialog()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125" stroke="#fffffff" stroke-width="2"></path>
+        <path d="M17 15V18M17 21V18M17 18H14M17 18H20" stroke="#fffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      Post Add Free
+    </button>
+  </div>
+
+  
+
+  <div>
+    <h2>Previous Ads Posted By You</h2>
+    <div>
+
+
+    
+      <div *ngFor="let laptop of laptops" class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <!-- Use laptop image or placeholder image -->
+            <img [src]="getImageUrl(laptop)" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- Use laptop details -->
+              <h5 class="card-title">{{ laptop.company}} {{ laptop.typeName}}</h5>
+              <!-- <p class="card-text">{{ laptop.description }}</p> -->
+              <p class="card-text">{{ truncateDescription(laptop.description) }}</p>
+              <!-- <p class="card-text"><small class="text-body-secondary">{{ laptop.location }}</small></p>
+              <p class="card-text"><small class="text-body-secondary">{{ laptop.timestamp }}</small></p> -->
+              <div class="d-flex justify-content-between">
+                <p class="card-text">
+                  <small class="text-body-secondary">{{ laptop.location }}</small>
+                </p>
+                <p class="card-text">
+                  <small class="text-body-secondary text-end">{{ laptop.timestamp }}</small>
+                </p>
+              </div>
+              
+
+              <!-- <p class="card-text"><small class="text-body-secondary">{{ laptop.updatedAt }}</small></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Iterate over cars -->
+      <div *ngFor="let car of cars" class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img [src]="getImageUrl(car)" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <!-- Use car details -->
+              <h5 class="card-title">{{ car.Company }}  {{ car.Vaarient }}</h5>
+              <!-- <p class="card-text">{{ car.description }}</p> -->
+              <p class="card-text">{{ truncateDescription(car.description) }}</p>
+
+              <p class="card-text"><small class="text-body-secondary"><i class="fas fa-tachometer-alt"></i>
+                {{ car.Mileage }}km . {{ car.modelYear }}</small></p>
+
+              <div class="d-flex justify-content-between">
+                <p class="card-text">
+                  <small class="text-body-secondary">{{ car.location }}</small>
+                </p>
+                <p class="card-text">
+                  <small class="text-body-secondary text-end">{{ car.timestamp }}</small>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  

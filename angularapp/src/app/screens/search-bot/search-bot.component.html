@@ -1,0 +1,164 @@
+
+<!-- tolbar start -->
+
+<!-- component -->
+<div class=" bg-gray-100 min-w-screen">
+    <!-- Header Logo Center -->
+    <header class="w-full text-gray-700 bg-white border-t border-gray-100 shadow-sm body-font">
+        <div class="container flex flex-col flex-wrap items-center pt-1 pb-1 mx-auto md:flex-row justify-between" >       
+            <a href="/">
+                <img class="navbar-brand" id="logo" src="\assets\logo1.png" class="d-block">
+            </a>         
+       
+      <div>   
+                  <!-- when logged in the user icon- drop down  -->
+        <div class="container-fluid" *ngIf="!isLoggedIn()">
+            <ul class="navbar-nav">
+              <!-- Avatar Dropdown -->
+              <li class="nav-item dropdown" [matMenuTriggerFor]="menu" >
+                <a class="nav-link dropdown-toggle d-flex align-items-center">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
+                    height="40" width="40" alt="Avatar" loading="lazy" />
+                </a>
+                <mat-menu #menu="matMenu"  >
+                  <button mat-menu-item  style="padding-left: 5px;padding-right: 5px;"><mat-icon>perm_identity</mat-icon>My Profile</button>
+                  <button mat-menu-item (click)="settingnavigate()" style="padding-left: 5px;padding-right: 5px;"><mat-icon>settings</mat-icon>Settings</button>
+                  <button mat-menu-item style="padding-left: 5px;padding-right: 5px;">	<mat-icon> monetization_on</mat-icon>Pricing</button>
+                  <button mat-menu-item style="padding-left: 5px;padding-right: 5px;">	<mat-icon>sms_failed</mat-icon>FAQ</button>
+                  <mat-divider></mat-divider>
+                  <!-- <button mat-menu-item >	<mat-icon>exit_to_app</mat-icon>Logout</button> -->
+                  <button mat-menu-item (click)="logout()" style="padding-left: 5px;padding-right: 5px;">
+                    <mat-icon>exit_to_app</mat-icon>
+                    Logout
+                  </button>
+                  
+                </mat-menu>
+              </li>
+            </ul>       
+            </div>
+                  <!-- when logged out the user icon- drop down  -->
+         <div class="container-fluid" *ngIf="isLoggedIn()">
+            <ul class="navbar-nav">
+              <!-- Avatar Dropdown -->
+              <li class="nav-item dropdown" [matMenuTriggerFor]="menu">
+                <a class="nav-link dropdown-toggle d-flex align-items-center">
+                  <i class="fa fa-user"></i>
+                </a>
+                <mat-menu #menu="matMenu" >
+                  <button mat-menu-item (click)="navigateToLogin()" style="padding-left: 5px;padding-right: 5px;"><mat-icon>perm_identity</mat-icon>Login</button>                      
+                  <button mat-menu-item (click)="navigateToSignUp()" style="padding-left: 5px;padding-right: 5px;"><mat-icon>touch_app</mat-icon>SignUp</button>
+                           
+                </mat-menu>
+              </li>
+            </ul>       
+        </div>
+    </div> 
+
+        </div>
+    </header>
+   
+</div>
+<!-- toolabr end -->
+
+
+
+
+<div class=" bg-gray-100 flex justify-center items-center">
+    <div class="container mx-auto bg-indigo-500 rounded-lg p-14">
+      <form (submit)="search()">
+        <h1 class="text-center font-bold text-white text-4xl">Start a Conversation</h1>
+        <p class="mx-auto font-normal text-sm my-6 max-w-lg">Enter your search query and select the category (Cars, Laptops, or Both)</p>
+        <div class="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
+          <input class="text-base text-gray-400 flex-grow outline-none px-2" type="text" placeholder="Enter your search query" [(ngModel)]="query" name="query" />
+          <div class="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto">
+            <select class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg" [(ngModel)]="category" name="category">
+              <option value="cars">Cars</option>
+              <option value="laptops">Laptops</option>
+              <option value="both">Both</option>
+            </select>
+            <button type="submit" class="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">Search</button>
+          </div>
+        </div>
+      </form>
+
+  
+      <div class="typing-text text-white mt-8" *ngIf="searchResultText">
+        <p>{{ searchResultText }}</p>
+      </div>
+      
+      
+      
+      
+    </div>
+  </div>
+
+
+
+  <div *ngIf="carResults.length === 0 && laptopResults.length === 0" class="empty-results" [ngStyle]="{'height': '30vh'}">
+    <h3 class="text-center"></h3>
+  </div>
+
+          <!-- Car Results -->
+   <div class="container mt-8">
+
+        <div *ngFor="let car of carResults" class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <!-- Use car image or placeholder image -->
+            <img [src]="getImageUrl(car)" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <!-- Use car details -->
+                <h5 class="card-title">{{ car.Company }}  {{ car.Vaarient }}</h5>
+                <!-- <p class="card-text">{{ car.description }}</p> -->
+                <p class="card-text">{{ truncateDescription(car.description) }}</p>
+
+                <p class="card-text"><small class="text-body-secondary"><i class="fas fa-tachometer-alt"></i>
+                {{ car.Mileage }}km . {{ car.modelYear }}</small></p>
+
+                <div class="d-flex justify-content-between align-items-center">
+                <p class="card-text">
+                    <small class="text-body-secondary">{{ car.location }}</small>
+                </p>
+                <button class="btn btn-primary" (click)="viewItem(car.selectedCategory, car._id)">View</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    
+        <!-- Laptop Results -->
+    <div class="container mt-8">
+        <div *ngFor="let laptop of laptopResults" class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <!-- Use laptop image or placeholder image -->
+            <img [src]="getImageUrl(laptop)" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <!-- Use laptop details -->
+                <h5 class="card-title">{{ laptop.company }}  {{ laptop.typeName }}</h5>
+                <!-- <p class="card-text">{{ laptop.description }}</p> -->
+                <p class="card-text">{{ truncateDescription(laptop.description) }}</p>
+                
+                <div class="d-flex justify-content-between align-items-center">
+                <p class="card-text">
+                    <small class="text-body-secondary">{{ laptop.location }}</small>
+                </p>
+                <button class="btn btn-primary" (click)="viewItem(laptop.selectedCategory, laptop._id)">View</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>    
+
+  
+
+
+    <app-footer></app-footer>

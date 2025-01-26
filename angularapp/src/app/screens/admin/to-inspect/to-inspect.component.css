@@ -1,0 +1,66 @@
+/* subscribed-users.component.css */
+.subscribed-users-container {
+    margin: 20px;
+  }
+  
+  .page-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .subscribed-users-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .subscribed-user-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .user-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-icon {
+    margin-right: 10px;
+  }
+  
+  .user-info {
+    flex-grow: 1;
+  }
+  
+  .user-email {
+    font-weight: bold;
+  }
+  
+  .user-category {
+    margin-bottom: 5px;
+  }
+  
+  .user-timestamp {
+    font-size: 0.8em;
+    color: #888;
+  }
+  
+  .view-button,
+  .delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-button:hover,
+  .delete-button:hover {
+    background-color: #0056b3;
+  }
+  

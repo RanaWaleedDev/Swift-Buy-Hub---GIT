@@ -1,0 +1,45 @@
+<div class="max-w-md py-3 px-3 sm:mx-auto">
+    <div class="flex flex-col rounded-xl bg-slate-200 shadow-lg">
+      <div class="px-12 py-5">
+        <h2 class="whitespace-nowrap text-center font-semibold text-gray-800 sm:text-xl">Your opinion matters to us!</h2>
+      </div>
+      <div class="flex w-full flex-col items-center bg-[#fdfeff]">
+        <div class="flex flex-col items-center space-y-3 py-6">
+          <span class="text-lg font-medium text-gray-500">How was your experience?</span>
+          <div class="flex space-x-3">
+            <svg class="h-8 w-8 cursor-pointer text-amber-300/70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <!-- Stars SVG -->
+            </svg>
+            <!-- Add more stars SVGs -->
+          </div>
+        </div>
+        <div class="flex w-3/4 flex-col">
+          <textarea rows="3" class="resize-none rounded-xl bg-gray-100 p-4 text-gray-500 outline-none focus:ring" placeholder="Leave a message, if you want"></textarea>
+          <!-- Button triggers modal -->
+          <button data-bs-toggle="modal" data-bs-target="#thanksModal" class="my-8 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 py-3 text-base text-white">Rate now</button>
+        </div>
+      </div>
+      <div class="flex items-center justify-center py-5">
+        <a href="#" class="text-sm text-gray-600">Maybe later</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="thanksModal" tabindex="-1" aria-labelledby="thanksModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="thanksModalLabel">Thanks for the feedback!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Your feedback is valuable to us. Thank you for taking the time to rate your experience.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

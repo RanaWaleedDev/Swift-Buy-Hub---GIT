@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Change Username</h2>
+<mat-dialog-content>
+  <!-- <p class="mb-4">Current Username: {{ currentUsername }}</p> -->
+  <mat-form-field>
+    <input matInput placeholder="New Username" [(ngModel)]="newUsername">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-button color="primary" (click)="changeUsername()">Save</button>
+</mat-dialog-actions>

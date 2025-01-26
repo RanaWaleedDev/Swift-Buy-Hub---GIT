@@ -1,0 +1,163 @@
+<app-toolbar></app-toolbar>
+
+
+<section class="pt-8 pt-md-9">
+    <div class="container">
+      <h2 class="text-dark fw-normal">
+        Get answers
+      </h2>
+
+      <!-- Form -->
+      <form class="mt-4">
+        <div class="input-group input-group-lg shadow-sm">
+          <span class="input-group-text border-0">
+            <i class="fas fa-search fa-xs text-secondary mb-1"></i>
+          </span>
+
+          <input type="text" class="form-control bg-white border-0 px-1" placeholder="Search help topics..." [(ngModel)]="searchQuery" name="searchQuery" (ngModelChange)="search()">
+
+          <span class="input-group-text border-0 py-1 pe-2">
+            <button type="button" class="btn btn-primary text-uppercase-bold-sm" (click)="search()">
+                Search
+              </button>
+              
+          </span>
+        </div>
+      </form>
+
+      <!-- Categories -->
+      <div class="row mt-6">
+        <div class="col-12 mb-4">
+          <span class="badge bg-pastel-primary text-primary text-uppercase-bold-sm">
+            Topic categories
+          </span>
+        </div>
+
+        <!-- Category -->
+        <div class="col-md-3 mb-4">
+          <a  class="card align-items-center text-decoration-none border-0 hover-lift-light py-4"
+             (click)="updateCategory('Cars')">
+            <span class="icon-circle icon-circle-lg bg-pastel-primary text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-c</title><polyline points="352 144 464 144 464 256" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></polyline><path d="M48,368,169.37,246.63a32,32,0,0,1,45.26,0l50.74,50.74a32,32,0,0,0,45.26,0L448,160" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path></svg>
+            </span>
+            <span class="text-dark mt-3">
+              Car
+            </span>
+          </a>
+        </div>
+
+        <!-- Category -->
+        <div class="col-md-3 mb-4">
+          <a class="card align-items-center text-decoration-none border-0 hover-lift-light py-4"
+             (click)="updateCategory('Laptops')">
+            <span class="icon-circle icon-circle-lg bg-pastel-primary text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5-e</title><rect x="48" y="80" width="416" height="384" rx="48" ry="48" style="fill:none;stroke:#000;stroke-linejoin:round;stroke-width:32px"></rect><path d="M397.82,80H114.18C77.69,80,48,110.15,48,147.2V208H64c0-16,16-32,32-32H416c16,0,32,16,32,32h16V147.2C464,110.15,434.31,80,397.82,80Z"></path><circle cx="296" cy="232" r="24"></circle><circle cx="376" cy="232" r="24"></circle><circle cx="296" cy="312" r="24"></circle><circle cx="376" cy="312" r="24"></circle><circle cx="136" cy="312" r="24"></circle><circle cx="216" cy="312" r="24"></circle><circle cx="136" cy="392" r="24"></circle><circle cx="216" cy="392" r="24"></circle><circle cx="296" cy="392" r="24"></circle><line x1="128" y1="48" x2="128" y2="80" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line><line x1="384" y1="48" x2="384" y2="80" style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line></svg>
+            </span>
+            <span class="text-dark mt-3">
+              Laptop
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+<section class="flex flex-col items-center bg-white">
+    <h1 class="mt-10 text-4xl font-bold text-gray-800">New Listings {{categoryName}}</h1>
+    
+    <!-- Car Listings -->
+    <div class="mt-10 grid max-w-md grid-cols-1 gap-6 px-2 sm:max-w-lg sm:px-20 md:max-w-screen-xl md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:gap-8">
+        <ng-container *ngIf="categoryName === 'Cars'" >
+            <article *ngFor="let item of filteredList" class="mb-4 overflow-hidden rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl" (click)="viewItem(item.selectedCategory, item._id)">
+                <div class=""  (click)="viewItem(item.selectedCategory, item._id)">
+                    <img [src]="getImageUrl(item)" alt="" class="w-full h-40 object-cover rounded-t-xl" />
+
+                </div>
+
+                <div class="p-4">
+                    <div class="pb-2">
+                        <a  class="text-lg hover:text-green-600 font-medium duration-500 ease-in-out">{{ truncateTitle(item.Company, item.Vaarient) }}</a>
+                    </div>
+
+                    <ul class="box-border flex list-none items-center border-t border-b border-solid border-gray-200 px-0 py-6">
+                        <li class="mr-4 flex items-center text-left">
+                            <i class="mr-2 text-2xl text-green-600">
+                                <!-- ic:baseline-location-on icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </i>
+                            <span class="text-sm">{{ item.location }}</span>
+                        </li>
+                        
+                        <li class="mr-4 flex items-center text-left">
+                            <i class="mr-2 text-2xl text-green-600">
+                                <!-- ic:round-directions-car icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M18 5h-2V3H8v2H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 12H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                            </i>
+                            <span class="text-sm">{{ item.modelYear }}</span>
+                        </li>
+                        
+                        <li class="mr-4 flex items-center text-left">
+                            <i class="mr-2 text-2xl text-green-600">
+                                <!-- Dollar sign icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2v-4h2v4zm0-6h-2V7h2v2z"/></svg>
+                            </i>
+                            <span class="text-sm">PKR /{{ item.price }}</span>
+                        </li>
+                        
+                    </ul>
+                    <p class="text-gray-600">{{ truncateDescription(item.description) }}</p>
+
+                </div>
+            </article>
+        </ng-container>
+
+
+        <ng-container *ngIf="categoryName === 'Laptops'">
+            <article *ngFor="let item of filteredList" class="mb-4 overflow-hidden rounded-xl border text-gray-700 shadow-md duration-500 ease-in-out hover:shadow-xl" (click)="viewItem(item.selectedCategory, item._id)">
+                <div class="" >
+                    <img [src]="getImageUrl(item)" alt="" class="" />
+                </div>
+
+                <div class="p-4">
+                    <div class="pb-2">
+                        <a class="text-lg hover:text-green-600 font-medium duration-500 ease-in-out">{{ truncateTitle(item.company, item.typeName) }}</a>
+                    </div>
+
+                    <ul class="box-border flex list-none items-center border-t border-b border-solid border-gray-200 px-0 py-6">
+                        <li class="mr-4 flex items-center text-left">
+                            <i class="mr-2 text-2xl text-green-600">
+                                <!-- ic:baseline-location-on icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            </i>
+                            <span class="text-sm">{{ item.location }}</span>
+                        </li>
+
+                        <li class="mr-4 flex items-center text-left">
+                            <i class="mr-2 text-2xl text-green-600">
+                                <!-- ic:outline-king-bed -->
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M18 3H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-1 12H7v-2h10v2z"/></svg>
+                            </i>
+                            <span class="text-sm">{{ item.os }}</span>
+                        </li>
+
+                        <li class="mr-4 flex items-center text-left">
+                            <i class="mr-2 text-2xl text-green-600">
+                                <!-- Dollar sign icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2v-4h2v4zm0-6h-2V7h2v2z"/></svg>
+                            </i>
+                            <span class="text-sm">PKR /{{ item.price }}</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-600">{{ truncateDescription(item.description) }}</p>
+
+                </div>
+            </article>
+        </ng-container>
+    </div>
+</section>

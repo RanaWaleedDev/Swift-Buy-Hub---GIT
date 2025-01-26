@@ -1,0 +1,370 @@
+<div *ngIf="!isLoggedIn();">
+<app-toolbar></app-toolbar>
+<app-carosalslider></app-carosalslider>
+</div>
+
+<div *ngIf="isLoggedIn();">
+    <header class="relative flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 text-slate-700 md:mx-auto md:flex-row md:items-center">
+      <a href="#" class="flex cursor-pointer items-center whitespace-nowrap text-2xl font-black">
+        <span class="mr-2 text-4xl text-green-500">
+          <a href="/">
+            <img style="height: 70px;width: 200px;" class="navbar-brand" id="logo" src="\assets\logo1.png" class="d-block">
+        </a>
+        </span>
+        SWIFT BUY HUB
+      </a>
+      <input type="checkbox" class="peer hidden" id="navbar-open" />
+      <label class="absolute top-5 right-7 cursor-pointer md:hidden" for="navbar-open">
+        <span class="sr-only">Toggle Navigation</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+      <nav aria-label="Header Navigation" class="flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all peer-checked:mt-8 peer-checked:max-h-56 md:ml-24 md:max-h-full md:flex-row md:items-start">
+        <ul class="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
+          <li class="font-bold md:mr-12"><a href="/pricing">Pricing</a></li>
+          <!-- <li class="md:mr-12"><a href="#">Contact</a></li> -->
+          <li class="md:mr-12"><a href="/faqs/users">FAQ</a></li>
+          <li class="md:mr-12"><a href="/sign-up">SignUp</a></li>
+
+          <li class="md:mr-12">
+            <button  [routerLink]="['/login']" class="rounded-full border-2 border-green-500 px-6 py-1 text-green-600 transition-colors hover:bg-green-500 hover:text-white">Login</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="relative mx-auto px-4 pt-16 sm:max-w-xl md:max-w-full md:px-8 lg:py-32 xl:px-20">
+      <div class="mx-auto max-w-xl lg:max-w-screen-xl">
+        <div class="mb-16 text-center lg:mb-0 lg:max-w-lg lg:text-left">
+          <div class="mb-6 max-w-xl">
+            <div>
+              <p class="bg-teal-accent-400 mb-4 inline-block rounded-full bg-green-200 px-3 py-px text-sm font-semibold tracking-wider text-green-900">This is Swifty</p>
+            </div>
+            <h2 class="mb-6 max-w-lg font-sans text-3xl font-bold tracking-tight text-slate-700 sm:text-5xl sm:leading-snug">
+              The #1 Marketplace <br />
+              for
+              <span class="inline-block text-green-500">Classified Ad's</span>
+            </h2>
+            <p class="text-base text-gray-700 md:text-lg">Our team of experts thoroughly examines the condition and authenticity of products, providing detailed reports to help buyers make confident decisions.</p>
+          </div>
+          <div class="flex flex-col items-center justify-center space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2 lg:justify-start">
+            <a href="/login" class="inline-flex h-12 w-full items-center justify-center rounded-full bg-green-500 px-6 font-medium tracking-wide text-white shadow-md outline-none transition duration-200 hover:bg-green-400 focus:ring sm:w-auto"> Start a free Trial </a>
+            <a href="https://youtu.be/tSqySU0ZqCk" class="inline-flex h-12 w-full items-center justify-center rounded-full border-2 border-green-500 px-4 font-semibold text-green-600 transition-colors duration-200 hover:border-y-green-400 hover:text-green-400 sm:w-auto" target="_blank" rel="noopener noreferrer">Watch a demo video</a>
+
+          </div>
+
+          <div class="mt-6 flex justify-center -space-x-4 lg:justify-start">
+            <img class="h-12 w-12 rounded-full ring ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+            <img class="h-12 w-12 rounded-full ring ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+            <img class="h-12 w-12 rounded-full ring ring-white" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" />
+            <div class="">
+              <span class="pl-8 font-semibold">Customer Reviews</span>
+              <div class="flex w-auto items-center justify-center space-x-1 pl-8">
+                <svg class="h-auto w-5 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                  <path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z" />
+                </svg>
+                <span class="text-sm font-medium text-slate-400"> 4.9 • <a href="#" class="text-sm font-normal underline">129 reviews</a> </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hidden h-full justify-center overflow-hidden lg:absolute lg:bottom-0 lg:right-0 lg:flex lg:w-1/2 lg:items-end lg:justify-start">
+          <svg class="h-full w-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- <pattern id="img1" x="0" y="0" width="1" height="1">
+                <image x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMaxYMax slice" href="https://images.unsplash.com/photo-1575218823251-f9d243b6f720?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+              </pattern> -->
+              <pattern id="img1" x="0" y="0" width="1" height="1">
+                <image x="0" y="0" width="130%" height="100%" preserveAspectRatio="xMaxYMax slice" href="https://cdn.dokan.co/2022/05/01200200/What-is-a-Marketplace.png" />
+              </pattern>
+              
+              
+              
+            </defs>
+
+            <path fill="url(#img1)" d="M40,-62.6C52.2,-54.5,62.5,-43.9,66.9,-31.4C71.3,-18.9,69.6,-4.6,65.9,8.3C62.2,21.1,56.4,32.5,49.2,45.2C42.1,57.9,33.7,72.1,22.2,75.3C10.7,78.5,-3.9,70.7,-14.8,62.1C-25.7,53.5,-32.8,44.1,-44.9,35.8C-57,27.5,-74,20.3,-82.1,7.7C-90.3,-4.8,-89.5,-22.7,-80.8,-34.8C-72,-46.9,-55.2,-53.3,-40.4,-60.2C-25.6,-67,-12.8,-74.3,0.6,-75.2C13.9,-76.1,27.9,-70.6,40,-62.6Z" transform="translate(100 100)" />
+          </svg>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<app-categories-view-home></app-categories-view-home>
+
+
+
+
+
+<div class="  mb-8 ml-8 mr-8">
+  <h2 class="text-2xl font-bold mb-4">Cars</h2>
+
+  <!-- Cars Category -->
+  <div class="mb-8 category-container ">
+   
+    <div class="flex flex-row  gap-4 pb-2">
+      <!-- Iterate over cars and display card for each -->
+      <ng-container *ngFor="let car of cars">
+        <div class=" card-container ">
+          <div class="card border border-gray-200 p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img class="w-full h-40 object-cover rounded-t-lg"  [src]="getImageUrl(car)">
+            <div class="p-4 pb-2">
+              <h2 class="text-xl font-semibold text-black" >{{ truncateCarTitle(car.Company, car.Vaarient) }}</h2>
+              <p class="text-gray-600">{{ truncateDescription(car.description) }}</p>
+              <p class="text-gray-600 mt-2">PKR {{ car.price }}</p>
+              <div class="flex justify-between items-center mt-2 text-black">
+                  <p><i class="fas fa-map-marker-alt mr-2 "></i> {{ car.location }}</p>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                (click)="viewItem(car.selectedCategory, car._id)"
+                >View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Laptops Category -->
+  <div class="category-container">
+    <h2 class="text-2xl font-bold mb-4">Laptops</h2>
+    <div class="flex flex-row gap-4 pb-2">
+      <!-- Iterate over laptops and display card for each -->
+      <ng-container *ngFor="let laptop of laptops">
+        <div class="card-container">
+          <div class="card border border-gray-200 p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img class="w-full h-40 object-cover rounded-t-lg"  [src]="getImageUrl(laptop)">
+            <div class="p-4 pb-2">
+              <h2 class="text-xl font-semibold text-black">{{ laptop.company}} {{ laptop.typeName}}</h2>
+              <p class="text-gray-600">{{ truncateDescription(laptop.description) }}</p>
+              <p class="text-gray-600 mt-2">PKR {{ laptop.price }}</p>
+              <div class="flex justify-between items-center mt-2 text-black">
+                  <p><i class="fas fa-map-marker-alt mr-2 "></i> {{ laptop.location }}</p>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                (click)="viewItem(laptop.selectedCategory, laptop._id)"
+                >View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+  
+<div class="relative mx-auto my-10 flex max-w-md flex-col justify-between  px-10 lg:max-w-screen-lg lg:flex-row">
+  <div class="bg-slate-100 absolute left-0 h-full w-full lg:w-5/6 rounded-md border border-blue-200"></div>
+  <div class="relative py-10 ">
+    <span class="rounded-full bg-blue-200 px-2 py-1 text-xs text-blue-500">NEW</span> 
+    <h2 class="text-slate-900 text-3xl font-bold lg:text-5xl">Just releasing</h2>
+    <p class="text-slate-700 mt-4 max-w-lg">New categories and Inspection services added monthly to enhance user experience and make this plaform globally categorized </p>
+  </div>
+  <div class="relative h-72 lg:w-72">
+    <div class="bg-slate-50 shadow-slate-200 absolute h-56 w-56 translate-x-6 translate-y-6 rounded-2xl shadow-lg backdrop-blur-lg lg:h-60 lg:w-60"></div>
+    <div class="shadow-slate-200 absolute flex h-56 w-56 translate-x-3 translate-y-3 flex-col items-center justify-center rounded-2xl bg-white shadow backdrop-blur-lg lg:h-60 lg:w-60">
+      <div class="flex h-40 w-40 flex-col items-center justify-center rounded-full border-2 border-dashed">
+        <p class="text-center text-5xl font-bold text-blue-500 lg:text-6xl">1</p>
+        <span class="text-center text-xs uppercase leading-4 text-blue-500"
+          >New <br />
+          Categories</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+
+
+<!-- component -->
+<div class="bg-black w-full h-full h-min-screen p-8 ">
+  <div class="container m-auto">
+    <div class="w-full z-0 relative md:min-h-[41rem]">
+      <div class="w-full h-full relative z-0 rounded-2xl">
+        <video #videoPlayer class="relative z-[1] inline w-full h-full object-center object-cover rounded-2xl" preload="metadata" autoplay muted (ended)="restartVideo(videoPlayer)">
+          <source src="assets/Revolutionize Your Online Shopping Experience Now!.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<section class=" section1 relative overflow-hidden bg-gray-100 py-12 sm:py-16 lg:py-2" [class.bg-white]="!isDarkTheme" [class.bg-black]="isDarkTheme">
+  <div class=" absolute h-72 w-72 scale-125 -right-8 -bottom-10">
+    <div class="absolute h-60 w-60 rounded-2xl border-4 border-blue-600"></div>
+    <div class="absolute h-60 w-60 translate-x-3 translate-y-3 rounded-2xl border-4 border-blue-600"></div>
+    <div class="absolute h-60 w-60 translate-x-6 translate-y-6 rounded-2xl border-4 border-blue-600"></div>
+  </div>
+  <div class="mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="sm:text-center">
+      <h2 class="textCOlor mt-6 text-3xl font-semibold leading-7 text-gray-900 sm:text-4xl xl:text-5xl" [class.text-gray-900]="!isDarkTheme">
+        About Us
+      </h2>
+      <hr class="mt-4 h-1.5 w-32 border-none bg-blue-600 sm:mx-auto sm:mt-8" />
+    </div>
+
+    <div class="mx-auto mt-20 grid max-w-screen-lg grid-cols-1 gap-x-8 gap-y-12 text-center sm:text-left md:grid-cols-3">
+      <div class="parent  backdrop-blur-lg relative mb-3 rounded-3xl border bg-white/70 px-12 py-10 text-left shadow lg:px-12">
+        <p class="child-paragraphs relative text-5xl font-black text-blue-600">Sell with Us</p>
+        <p class="child-paragraphs relative mt-5 text-gray-600">Welcome to our platform, where you can sell a variety of electronic items, including laptops, mobiles, and more .Our platform provides users with easy access to various products, enabling them to make informed purchasing decisions</p>
+      </div>
+
+      <div class="parent backdrop-blur-lg relative mb-3 rounded-3xl border bg-white/70 px-12 py-10 text-left shadow lg:px-12">
+        <p class="child-paragraphs relative text-5xl font-black text-blue-600">Price Prediction</p>
+        <p class="child-paragraphs relative mt-5 text-gray-600">In addition to classified listings, we offer advanced price prediction services for every item listed on our platform. Our sophisticated algorithms analyze market trends and historical data to provide accurate price estimates, helping users determine the fair value of their desired products.</p>
+      </div>
+
+      <div class="parent backdrop-blur-lg relative mb-3 rounded-3xl border bg-white/70 px-12 py-10 text-left shadow lg:px-12">
+        <p class="child-paragraphs relative text-5xl font-black text-blue-600">Inspection Services</p>
+        <p class="child-paragraphs relative mt-5 text-gray-600">To ensure customer satisfaction and transparency, we also offer inspection services for pre-owned items. Our team of experts thoroughly examines the condition and authenticity of products, providing detailed reports to help buyers make confident decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- component -->
+<div class="p-8">
+  <div class="bg-white p-4 rounded-lg shadow-xl py-8 mt-12">
+      <h4 class="text-4xl font-bold text-gray-800 tracking-widest uppercase text-center">FAQ</h4>
+      <p class="text-center text-gray-600 text-sm mt-2">Here are some of the frequently asked questions</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 px-2 xl:px-12 mt-4">
+          <div class="flex space-x-8 mt-8">
+              <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                      <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path>
+                  </svg>
+              </div>
+              <div>
+                  <h4 class="text-xl font-bold text-gray-700">How do I post an ad on Swift Buy Hub?</h4>
+                  <p class="text-gray-600 my-2">Posting an ad on Swift Buy Hub is simple. Just click on the "Post Ad" button on the homepage, fill in the required details about your product or service, upload some images, and submit your ad. Your ad will then be visible to potential buyers on our platform.</p>
+                  <a href="/faqs/users" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+              </div>
+          </div>
+          
+          <div class="flex space-x-8 mt-8">
+              <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+              </div>
+              <div>
+                  <h4 class="text-xl font-bold text-gray-700">How can I contact a seller?</h4>
+                  <p class="text-gray-600 my-2">To contact a seller on Swift Buy Hub, simply click on the "Contact Seller" button on the ad listing page. This will allow you to send a message directly to the seller, where you can discuss details such as price, condition, and delivery options.</p>
+                  <a href="/faqs/users" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+              </div>
+          </div>
+
+          <div class="flex space-x-8 mt-8">
+              <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                  </svg>
+              </div>
+              <div>
+                  <h4 class="text-xl font-bold text-gray-700">Is Swift Buy Hub available internationally?</h4>
+                  <p class="text-gray-600 my-2">Currently, Swift Buy Hub operates primarily within [Country Name]. However, we are constantly expanding our reach and may offer international services in the future. Stay tuned for updates!</p>
+                  <a href="/faqs/users" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+              </div>
+          </div>
+
+          <div class="flex space-x-8 mt-8">
+              <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                  </svg>
+              </div>
+              <div>
+                  <h4 class="text-xl font-bold text-gray-700">How secure is Swift Buy Hub?</h4>
+                  <p class="text-gray-600 my-2">Security is a top priority at Swift Buy Hub. We use advanced encryption and security measures to protect your personal information and transactions. Additionally, we regularly update our systems to ensure they meet the latest security standards.</p>
+                  <a href="/faqs/users" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+              </div>
+          </div>
+
+          <!-- Add more FAQ items here -->
+          <!-- Each FAQ item consists of a <div> with the appropriate content -->
+
+      </div>
+  </div>
+</div>
+
+
+
+<section class="section1 relative bg-blue-50 py-10 text-blue-900 sm:py-16 lg:py-24" [class.bg-black]="isDarkMode">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <div class="mb-4 inline-flex h-12 w-12 text-blue-700">
+        <svg viewBox="0 0 136 217" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.6632 105.436C27.6632 105.636 24.8632 105.836 21.9632 105.936C17.4632 106.236 12.8632 106.536 8.36322 106.736C7.36322 106.836 6.46322 106.836 5.46322 106.736C1.56322 106.336 -0.636777 103.236 0.163223 99.4361C0.263223 99.0361 0.363223 98.6361 0.563223 98.3361C5.06322 86.5361 8.26322 74.4361 11.2632 62.2361C14.6632 48.7361 18.1632 35.2361 21.6632 21.8361C22.3632 19.2361 23.1632 16.6361 23.8632 14.0361C24.8632 10.5361 26.8632 8.23607 30.6632 7.83607C34.6632 7.43607 38.5632 6.73607 42.5632 6.43607C60.5632 5.33607 78.5632 3.33607 96.4632 1.23607C100.963 0.736068 105.563 0.336068 110.063 0.036068C111.663 -0.063932 113.263 0.036068 114.763 0.436068C118.563 1.33607 120.163 4.93607 118.663 8.43607C118.163 9.53607 117.463 10.5361 116.763 11.5361C114.963 14.3361 113.163 17.0361 111.463 19.8361C106.863 27.6361 102.363 35.4361 97.6632 43.1361C92.9632 50.8361 88.1632 58.5361 83.3632 66.2361C81.9632 68.4361 80.5632 70.5361 79.1632 72.6361C78.7632 73.2361 78.3632 73.9361 77.7632 74.9361C78.7632 74.9361 79.3632 74.9361 79.9632 74.9361C88.2632 75.0361 96.5632 75.0361 104.863 75.1361C105.463 75.1361 106.163 75.2361 106.763 75.3361C110.563 76.1361 112.463 79.6361 111.063 83.2361C110.563 84.5361 109.663 85.7361 108.763 86.8361C104.663 92.2361 100.463 97.5361 96.4632 103.036C94.5632 105.636 92.8632 108.536 91.3632 111.436C83.2632 126.836 75.2632 142.136 67.3632 157.636C59.1632 173.536 51.1632 189.636 43.0632 205.536C42.4632 206.736 41.7632 207.936 40.7632 208.936C38.3632 211.436 35.1632 211.236 32.6632 208.936C30.8632 207.236 29.8632 205.236 29.7632 202.836C29.4632 198.336 29.0632 193.736 29.1632 189.136C29.4632 172.736 30.0632 156.336 30.3632 139.936C30.5632 128.836 30.5632 117.736 30.6632 106.636C30.8632 106.336 30.7632 105.936 30.6632 105.436Z" fill="currentColor" />
+        </svg>
+      </div>
+      <h2 class="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">Now Free for Early Birds</h2>
+      <!-- <p class="mt-4 text-xl font-medium">Everyone who signs up before the beta launch, will get 6 months free Prediction Calculator and Support</p> -->
+      <p class="mt-4 text-xl font-medium typing-animation">Everyone who signs up before the beta launch, will get 6 months free Prediction Calculator and Support</p>
+
+      <div class="sm mt-8 flex flex-col items-center justify-center sm:flex-row sm:space-x-4 sm:px-0 lg:mt-12">
+        <button class="mt-4 rounded-lg border-2 border-blue-700 bg-blue-700 px-6 py-2 font-medium text-white transition hover:translate-y-1" (click)="openDialog()">Try for free</button>
+        <a href="/pricing" class="mt-4 rounded-lg border-2 border-blue-700 px-6 py-2 font-medium text-blue-700 transition hover:translate-y-1">Choose a Plan</a>
+      </div>
+
+      <!-- <p class="mt-6 text-base ">Already have an account? <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline focus:text-blue-700">Log in</a></p> -->
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- component -->
+<section class="text-gray-600 body-font relative">
+  <div class="inset-0 bg-gray-300">
+    <iframe width="100%" height="500px" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://maps.google.com/maps?width=100%&height=800&hl=en&q=Lahore+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style=""></iframe>
+  </div>
+</section>
+
+
+
+<div *ngIf="showDialog" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 *ngIf="!isLoggedIn();"><i class="fas fa-rocket" style="color: #FFD700;"></i> <strong>Success!</strong></h2>
+      <h2 *ngIf="isLoggedIn();"> <strong>Error!</strong></h2>
+
+    </div>
+    <div class="modal-body">
+      <!-- <p>Please select any item and use the prediction option for free.</p> -->
+      <div *ngIf="!isLoggedIn();">
+        <p>Please select any item and use the prediction option for free.</p>
+      </div>
+
+      <div *ngIf="isLoggedIn();">
+        <p>Please login use the prediction feature for free.</p>
+      </div>
+      
+    </div>
+    <div class="modal-footer">
+      <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="closeDialog()">OK</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- home.component.html -->
+<button class="Btn" (click)="scrollToTop()">
+  <svg height="1.2em" class="arrow" viewBox="0 0 512 512">
+    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"></path>
+  </svg>
+  <p class="text">Back to Top</p>
+</button>
+
+<app-footer></app-footer>

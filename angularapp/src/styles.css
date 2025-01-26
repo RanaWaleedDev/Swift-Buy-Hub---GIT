@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+ /* styles.css */
+ /* Dark Mode Styles */
+.dark-theme {
+    background-color: #333; /* Example background color for dark mode */
+    color: #fff; /* Example text color for dark mode */
+  }
+  
+  /* Apply dark mode styles to the toolbar */
+  .dark-theme app-toolbar {
+    background-color: #111; /* Example background color for toolbar in dark mode */
+    color: #fff; /* Example text color for toolbar in dark mode */
+  }
+  
+  /* Apply dark mode styles to the navbar */
+  .dark-theme .navbar {
+    background-color: #222; /* Example background color for navbar in dark mode */
+    color: #fff; /* Example text color for navbar in dark mode */
+  }
+  
+  /* Apply dark mode styles to other components as needed */
+  .dark-theme .car-container {
+    background-color: #444; /* Example background color for car container in dark mode */
+    color: #fff; /* Example text color for car container in dark mode */
+  }
+  
+  .dark-theme .card {
+    background-color: #555; /* Example background color for cards in dark mode */
+    color: #fff; /* Example text color for cards in dark mode */
+  }
+  
+  .dark-theme .section1 {
+    background-color: #333; /* Change background color for dark mode */
+    color: #fff; /* Change text color for dark mode */
+  }
+  
+  
+  /* Add more styles for other components as needed */
+  

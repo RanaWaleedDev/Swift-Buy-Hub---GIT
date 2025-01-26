@@ -1,0 +1,30 @@
+
+
+  <div class="categories">
+    <h1 class="categoryheading">Categories</h1>
+    <div class="card-list">
+        <div class="card" (click)="handleClick('Laptops')">
+            <mat-icon class="card-image">laptop</mat-icon>
+          <div class="card-text">Laptops</div>
+        </div>
+  
+        <div class="card" (click)="handleClick('Mobiles')">
+          <div class="ribbon">Coming Soon</div>
+          <mat-icon class="card-image">smartphone</mat-icon>
+          <div class="card-text">Mobiles</div>
+      </div>
+      
+  
+        <div class="card" (click)="handleClick('Cars')">
+            <mat-icon class="card-image ">directions_car</mat-icon>
+          <div class="card-text">Cars</div>
+        </div>
+      </div>
+
+      <section>
+        <div class="example-button-row  categoryheadingviewmore" style="margin-top: 60px;">
+          <button mat-raised-button style="background-color: rgb(32, 133, 167); color: white;"  (click)="showSnackbar()">View More</button>
+        </div>
+      </section>
+
+  </div>

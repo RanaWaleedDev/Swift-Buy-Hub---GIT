@@ -1,0 +1,73 @@
+<div class="bg-slate-200 flex h-screen">
+    <!-- Left Sidebar -->
+    <aside class="fixed z-50 md:relative">
+        <nav aria-label="Sidebar Navigation" class="w-64 left-0 z-10 flex h-screen flex-col overflow-hidden bg-gray-700 text-white transition-all">
+            <a href="#"> <!-- Replace "/home" with the actual URL of your home page -->
+                <div class="bg-slate-800 mt-5 py-4 pl-10 flex items-center">
+                    <img src="/assets/logo1.png" alt="Logo" class="w-8 h-7 mr-2"> <!-- Adjusted width and height -->
+                    <span class="text-xl">Swift Buy Hub</span>
+                </div>
+            </a>
+            
+            
+            <ul class="mt-8 space-y-3">
+                <li class="relative">
+                    <button (click)="selectTab('overview')" [class.active]="selectedTab === 'overview'" class="sidebar-button focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 text-gray-300 focus:outline-none">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg></span>
+                        <span>Overview</span>
+                    </button>
+                </li>
+                <li class="relative">
+                    <button (click)="selectTab('userManagement')" [class.active]="selectedTab === 'userManagement'" class="sidebar-button focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 font-semibold focus:outline-none">
+                        <span class="h-6 w-6">
+                            <mat-icon>record_voice_over</mat-icon>
+                        </span>
+                        <span>User Management</span>
+                    </button>
+                </li>
+                <li class="relative">
+                    <button (click)="selectTab('subscription')" [class.active]="selectedTab === 'subscription'" class="sidebar-button focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 font-semibold focus:outline-none">
+                        <span class="h-6 w-6">
+                            <mat-icon>bookmark</mat-icon>
+                        </span>
+                       <span>Subscriptions</span>
+                    </button>
+                </li>
+                <li class="relative">
+                    <button (click)="selectTab('toSelect')" [class.active]="selectedTab === 'subscription'" class="sidebar-button focus:bg-slate-600 hover:bg-slate-600 flex w-full space-x-2 rounded-md px-10 py-4 font-semibold focus:outline-none">
+                        
+                        <span class="h-6 w-6">
+                            <mat-icon>assignment</mat-icon>
+                        </span>
+                        <span>
+                            <span>To Inspect</span>
+                        </span>
+                    </button>
+                </li>
+                
+                
+                <!-- Add other sidebar items here -->
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Right Content -->
+    <main id="dashboard-main" class="flex-1 p-10 overflow-y-auto">
+        <!-- Main Content -->
+        <div *ngIf="selectedTab === 'overview'">
+            <h1 class="text-3xl font-semibold text-gray-900 mb-4">Welcome to Admin Dashboard</h1>
+            <app-overview></app-overview>
+        </div>
+      <div *ngIf="selectedTab === 'userManagement'">
+         <app-users></app-users>
+      </div>
+      <div *ngIf="selectedTab === 'subscription'">
+          <app-subscriptions></app-subscriptions>
+      </div>
+      <div *ngIf="selectedTab === 'toSelect'">
+        <app-to-inspect></app-to-inspect>
+    </div>
+      <!-- Add other content sections for different tabs -->
+    </main>
+  </div>
+  

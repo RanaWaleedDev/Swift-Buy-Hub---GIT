@@ -1,0 +1,26 @@
+<h2 class="dialog-title"><span class="material-icons">person_add</span> Add User</h2>
+
+<div class="dialog-content">
+  <form (ngSubmit)="addUser()">
+    <div class="form-group">
+      <label for="username"><span class="material-icons">person</span> Username</label>
+      <input type="text" id="username" name="username" [(ngModel)]="userData.username" required>
+    </div>
+    <div class="form-group">
+      <label for="email"><span class="material-icons">email</span> Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="userData.email" required>
+    </div>
+    <div class="form-group">
+      <label for="password"><span class="material-icons">lock</span> Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="userData.password" required>
+    </div>
+    <div class="form-group">
+      <label for="contact"><span class="material-icons">phone</span> Contact</label>
+      <input type="text" id="contact" name="contact" [(ngModel)]="userData.contact">
+    </div>
+    <div class="dialog-actions">
+      <button type="button" (click)="cancel()"><span class="material-icons">cancel</span> Cancel</button>
+      <button type="submit"><span class="material-icons">add</span> Add User</button>
+    </div>
+  </form>
+</div>

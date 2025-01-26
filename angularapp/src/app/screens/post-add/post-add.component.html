@@ -1,0 +1,259 @@
+
+<div class="mainPop">
+<form [formGroup]="postForm">
+    <mat-tab-group [(selectedIndex)]="selectedTabIndex">
+        <mat-tab label="Step:1 Category">
+            <div style="padding: 20px;padding-left: 50px; padding-right: 50px;">
+             
+              <mat-form-field class="custom-input">
+                <mat-label>Select Category:</mat-label>
+                <mat-select formControlName="selectedCategory" (valueChange)="updateFormControls()">
+                    <mat-option value="cars">Cars</mat-option>
+                    <mat-option value="laptops">Laptops</mat-option>
+                    <!-- <mat-option value="mobiles">Mobiles</mat-option> -->
+                  </mat-select>
+               </mat-form-field>
+
+
+            <div style="padding-top: 30px; padding-left: 50px; padding-right: 50px;">
+              <ng-container *ngIf="postForm.value.selectedCategory === 'laptops'">
+                <mat-form-field appearance="outline">
+                  <mat-label>Company</mat-label>
+                  <input matInput formControlName="company" placeholder="Company" />
+                </mat-form-field>
+        
+                <mat-form-field appearance="outline">
+                  <mat-label>Type Name</mat-label>
+                  <input matInput formControlName="typeName" placeholder="Type Name" />
+                </mat-form-field>
+              </ng-container>
+        
+              <ng-container *ngIf="postForm.value.selectedCategory === 'cars'">
+                <mat-form-field appearance="outline">
+                  <mat-label>Company</mat-label>
+                  <input matInput formControlName="Company" placeholder="Company" />
+                </mat-form-field>
+        
+                <mat-form-field appearance="outline">
+                  <mat-label>Vaarient</mat-label>
+                  <input matInput formControlName="Vaarient" placeholder="Vaarient" />
+                </mat-form-field>
+              </ng-container>
+            </div>
+
+                      <!-- Navigation buttons -->
+          <div class="actions">
+            
+            
+         
+            <button mat-button (click)="closeDialog()">Cancel</button>
+            <!-- <button mat-button [disabled]="selectedTabIndex === 0" (click)="prevTab()">Previous</button> -->
+            <!-- <button mat-button (click)="nextTab()">Next</button> -->
+              
+            <button class="btn-class-name" mat-button (click)="nextTab()">
+                <span>Next</span>
+                <svg viewBox="0 0 320 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z">
+                </path>
+                </svg>
+            </button>
+           
+          </div>
+
+
+            </div>
+          </mat-tab>
+  
+          <mat-tab label="Step:2 Details">
+            <div style="padding: 20px;">
+              <ng-container *ngIf="postForm.value.selectedCategory === 'laptops' || postForm.value.selectedCategory === 'cars'">
+              
+                <div class="custom-card" [@.disabled]="!postForm.value.selectedCategory">
+                  
+<mat-form-field appearance="fill">
+  <mat-label>Price</mat-label>
+  <input matInput formControlName="price" placeholder="Enter price">
+</mat-form-field>
+
+                  <ng-container *ngIf="postForm.value.selectedCategory === 'laptops'">
+                       <!-- Show laptop or car details form controls -->
+                      <mat-form-field class="custom-input">
+                        <mat-label>Location</mat-label>
+                        <input matInput formControlName="location" placeholder="Location" />
+                      </mat-form-field>
+                    <mat-form-field class="custom-input">
+                      <mat-label>Ram</mat-label>
+                      <input matInput formControlName="Ram" placeholder="Ram" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Weight</mat-label>
+                        <input matInput formControlName="Weight" placeholder="Weight" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Touchscreen</mat-label>
+                        <input matInput formControlName="Touchscreen" placeholder="type '1' for Yes '0' for NO" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Ips Panel</mat-label>
+                        <input matInput formControlName="Ips" placeholder="type '1' for Yes '0' for NO" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                      <mat-label>PPI</mat-label>
+                      <input matInput formControlName="ppi" placeholder="type '1' for Yes '0' for NO" />
+                  </mat-form-field>
+                    <!-- <mat-form-field class="custom-input">
+                        <mat-label>ppi</mat-label>
+                        <input matInput formControlName="ppi" placeholder="ppi" />
+                    </mat-form-field> -->
+                    <mat-form-field class="custom-input">
+                      <mat-label>Pixels</mat-label>
+                      <input matInput formControlName="pixels" placeholder="eg 2560x1600" />
+                  </mat-form-field>
+                  <mat-form-field class="custom-input">
+                    <mat-label>Inches</mat-label>
+                    <input matInput formControlName="Inches" placeholder="eg 13.3" />
+                </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Cpubrand</mat-label>
+                        <input matInput formControlName="Cpubrand" placeholder="Cpubrand" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>HDD</mat-label>
+                        <input matInput formControlName="HDD" placeholder="HDD" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>SSD</mat-label>
+                        <input matInput formControlName="SSD" placeholder="SSD" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Gpubrand</mat-label>
+                        <input matInput formControlName="Gpubrand" placeholder="Gpubrand" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>OS</mat-label>
+                        <input matInput formControlName="os" placeholder="os" />
+                    </mat-form-field>
+                  
+        
+                    <!-- Add other laptop details form controls here -->
+                  </ng-container>
+
+                  <ng-container *ngIf="postForm.value.selectedCategory === 'cars'">
+                       <!-- Show laptop or car details form controls -->
+                 <mat-form-field class="custom-input">
+                  <mat-label>Location</mat-label>
+                  <input matInput formControlName="location" placeholder="Location" />
+                </mat-form-field>
+
+                    <mat-checkbox formControlName="accident">Has ever been in an accident?</mat-checkbox>
+
+                    <mat-form-field class="custom-input">
+                      <mat-label>Engine Capacity</mat-label>
+                      <input matInput formControlName="engineCapacity" placeholder="In CC e.g 1000" pattern="[0-9]*"/>
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Model Year</mat-label>
+                        <input matInput formControlName="modelYear" placeholder="eg 2024" pattern="[0-9]*"/>
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Mileage</mat-label>
+                        <input matInput formControlName="Mileage" placeholder="Km Driven eg 145,000" pattern="[0-9]*"/>
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Engine Type</mat-label>
+                        <input matInput formControlName="EngineType" placeholder="eg 1 for petrol 2 for diesel 3 for hybrid" pattern="[0-9]*" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Transmission</mat-label>
+                        <input matInput formControlName="Transmission" placeholder="eg 1 for auto 2 for manual" pattern="[0-9]*" />
+                    </mat-form-field>
+                    <mat-form-field class="custom-input">
+                        <mat-label>Body Type</mat-label>
+                        <input matInput formControlName="BodyType" placeholder="BodyType" />
+                    </mat-form-field>
+                    <!-- Add other car details form controls here -->
+                  </ng-container>
+                </div>
+              </ng-container>
+
+                                 <!-- Navigation buttons -->
+          <div class="actions">
+            <!-- <button mat-button [disabled]="selectedTabIndex === 0" (click)="prevTab()">Previous</button>
+            <button mat-button (click)="nextTab()">Next</button> -->
+            <button class="btn-class-name" mat-button (click)="prevTab()">
+                <span>Previous</span>
+                <svg viewBox="0 0 320 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3L209.4 41.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L89.3 256l169.3 169.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0l-192-192z"></path>
+                </svg>
+              </button>
+              
+            <button class="btn-class-name" mat-button (click)="nextTab()">
+                <span>Next</span>
+                <svg viewBox="0 0 320 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z">
+                </path>
+                </svg>
+            </button>
+          </div>
+
+            </div>
+          </mat-tab>
+        
+  
+          <mat-tab label="Step:3 Upload">
+            <div style="padding: 20px;">
+
+            <div class="center-label">
+              <label class="custum-file-upload" for="file" >
+                <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path fill="" d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
+                </div>
+                <div class="text">
+                   <span>Click To Upload Images You Can Select Multiples</span>
+                   </div>
+                   <input type="file" id="file"  accept="image/*" (change)="onFileSelected($event)" #fileInput style="display: none">
+                </label>
+             </div>   
+
+                 <!-- Display uploaded images in a list -->
+                 <div *ngIf="uploadedImages.length > 0">
+                    <p>Uploaded Images:</p>
+                    <ul>
+                      <li *ngFor="let image of uploadedImages; let i = index">
+                        {{ image.name }} <button mat-icon-button color="warn" (click)="removeImage(i)"><mat-icon>delete</mat-icon></button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+          
+              <!-- Description text field -->
+              <div style="padding: 20px;">
+              <mat-form-field class="custom-input">
+                <mat-label>Description in Detail</mat-label>
+                <textarea matInput formControlName="description" placeholder="Enter description"></textarea>
+              </mat-form-field>
+              </div>
+
+           
+          
+            <!-- Action buttons -->
+            <div class="actions">
+              <button mat-button (click)="closeDialog()">Cancel</button>
+              <button class="button"  mat-button [mat-dialog-close]="true" (click)="PostAdd()">
+                Post Now
+                <svg fill="currentColor" viewBox="0 0 24 24" class="icon1">
+                  <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
+                </svg>
+              </button>
+              <!-- <button mat-button [mat-dialog-close]="true" (click)="saveImages()">Save</button> -->
+            </div>
+          
+          </mat-tab>
+          
+    </mat-tab-group>
+  </form>
+  
+
+ 
+
+</div>

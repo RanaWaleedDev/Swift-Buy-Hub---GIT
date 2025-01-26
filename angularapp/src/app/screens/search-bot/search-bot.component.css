@@ -1,0 +1,44 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+
+.container {
+    padding-left: 20px; /* Adjust the padding value as needed */
+  }
+  
+
+  
+#logo{
+    height: 50px;
+   width: 50px;
+}
+
+
+.typing-text {
+    overflow: hidden; /* Ensures text is not visible until animation starts */
+  }
+  
+  .typing-text p {
+    display: inline-block;
+    white-space: nowrap; /* Prevents line breaks */
+    overflow: hidden;
+    border-right: .15em solid white; /* Creates typing cursor effect */
+    margin: 0;
+    padding: 0;
+    animation: typingAnimation 1s steps(40, end), blinkCursor .5s infinite alternate; /* Adjust animation duration as needed */
+  }
+  
+  @keyframes typingAnimation {
+    from {
+      width: 0; /* Start with no width */
+    }
+  }
+  
+  @keyframes blinkCursor {
+    to {
+      border-color: transparent; /* Blink cursor by hiding it */
+    }
+  }
+  

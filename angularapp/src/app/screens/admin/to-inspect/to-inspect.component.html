@@ -1,0 +1,21 @@
+<!-- subscribed-users.component.html -->
+<div class="subscribed-users-container" *ngIf="smartInspections.length > 0;">
+    <h2 class="page-heading">Pending Inspections</h2> <!-- Added heading -->
+    <ul class="subscribed-users-list">
+      <li *ngFor="let user of smartInspections  let i = index" class="subscribed-user-item">
+        <div class="user-details">
+          <div class="user-icon">
+            <mat-icon>person</mat-icon> <!-- Icon for user -->
+          </div>
+          <div class="user-info">
+            <div class="user-email">{{ user.currentUserId }}</div> <!-- Email of the subscribed user -->
+            <div class="user-category">
+              <button class="view-button" (click)="navigateToCategoryView(user.categoryId)">View AD</button> <!-- View button -->
+            </div>
+            <div class="user-timestamp">{{ user.timestamp }}</div> <!-- Timestamp -->
+          </div>
+        </div>
+        <button class="delete-button" (click)="deleteSmartInspection(i)">Delete</button> <!-- Delete button -->
+      </li>
+    </ul>
+</div>

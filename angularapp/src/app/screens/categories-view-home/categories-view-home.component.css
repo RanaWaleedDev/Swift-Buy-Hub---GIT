@@ -1,0 +1,92 @@
+/* .categories{
+    height: 80vh;
+} */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.categoryheading{
+    color: #333;
+    margin-bottom: 40px;
+     text-align: center;
+     margin-top: 20px;
+     font-family: 'Bebas Neue', sans-serif;
+     font-size: 20px; 
+}
+
+.categoryheadingviewmore{
+  color: #333;
+  margin-bottom: 40px;
+   text-align: center;
+   margin-top: 20px;
+   font-family: 'Bebas Neue', sans-serif;
+ 
+}
+
+.ribbon {
+  position: absolute;
+  top: 10px; /* Adjust the distance from the top */
+  left: 10px; /* Adjust the distance from the left */
+  background-color: red; /* Adjust the color of the ribbon */
+  color: white; /* Adjust the text color of the ribbon */
+  padding: 5px 10px; /* Adjust the padding of the ribbon */
+  font-size: 12px; /* Adjust the font size of the ribbon */
+  font-weight: bold; /* Adjust the font weight of the ribbon */
+  border-radius: 5px; /* Adjust the border radius of the ribbon */
+}
+
+.card-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+  
+  }
+
+  .card {
+    box-sizing: border-box;
+    width: 120px;
+    height: 150px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    font-weight: bold;
+    color: black;
+    margin-right: 20px;
+  }
+
+  .card:hover {
+    border: 1px solid #333;
+    transform: scale(1.05);
+  }
+
+  .card:active {
+    transform: scale(0.95);
+  }
+
+  .card-image {
+    width: 60px;
+    height: 60px;
+    margin-top: 28px;
+color: rgb(32, 133, 167);
+    font-size: 53px;
+  }
+
+  .card-text {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 8px 8px;
+  }

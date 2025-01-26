@@ -1,0 +1,69 @@
+
+
+<footer [class.bg-gray-50]="!isDarkTheme" [class.bg-black]="isDarkTheme">
+  <div class="mx-auto grid max-w-screen-xl gap-y-8 gap-x-12 px-4 py-10 md:grid-cols-2 xl:grid-cols-4 xl:px-10">
+      <div class="max-w-sm">
+        <div class="mb-6 flex h-12 items-center space-x-2">
+          <!-- <span class="text-2xl font-bold">Bel<span class="text-blue-600">Air</span>.</span> -->
+              <img class="navbar-brand" id="logo" src="\assets\logo1.png" href="#" class="d-block">
+
+        </div>
+        <div class="text-gray-500">Swift Buy Hub is a Free classified advertising platform where user can advertise anything related to cars, mobile phones, jobs, etc absolutely free of cost.Our mission is to connect buyers and sellers.!</div>
+      </div>
+      <div class="">
+        <div class="mt-4 mb-2 font-medium xl:mb-4">HeadQuater</div>
+        <div class="text-gray-500">
+          136 Remida Heights, <br />
+          G-2, <br />
+          Model Town, Lahore
+        </div>
+      </div>
+      <div class="">
+        <div class="mt-4 mb-2 font-medium xl:mb-4">Links</div>
+        <nav aria-label="Footer Navigation" class="text-gray-500">
+          <ul class="space-y-3">
+            <li><a class="hover:text-blue-600 hover:underline" href="/faqs/users">Faqs</a></li>
+            <li><a class="hover:text-blue-600 hover:underline" href="/aboutus">About Us</a></li>
+            <li><a class="hover:text-blue-600 hover:underline" href="/feedback/customer">Feedback</a></li>
+            <!-- <li><a class="hover:text-blue-600 hover:underline" href="#">Support Hub</a></li> -->
+            <li><a class="hover:text-blue-600 hover:underline" href="/ContactUs">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- <div class="">
+        <div class="mt-4 mb-2 font-medium xl:mb-4">Subscribe to our Newsletter</div>
+        <div class="flex flex-col">
+          <div class="mb-4">
+            <input type="email" class="focus:outline mb-2 block h-14 w-full rounded-xl bg-gray-200 px-4 sm:w-80 focus:outline-none focus:ring-1 focus:ring-blue-600" placeholder="Enter your email" />
+            <button class="block rounded-xl bg-blue-600 px-6 py-3 font-medium text-white">Subscribe</button>
+          </div>
+        </div>
+      </div> -->
+      <div class="">
+        <div class="mt-4 mb-2 font-medium xl:mb-4">Subscribe to our Newsletter</div>
+        <div class="flex flex-col">
+          <div class="mb-4">
+            <input type="email" class="focus:outline mb-2 block h-14 w-full rounded-xl bg-gray-200 px-4 sm:w-80 focus:outline-none focus:ring-1 focus:ring-blue-600" placeholder="Enter your email" [(ngModel)]="email" />
+            <button class="block rounded-xl bg-blue-600 px-6 py-3 font-medium text-white" (click)="subscribe()" [disabled]="loading">Subscribe</button>
+          </div>
+          <div *ngIf="loading" class="text-blue-500">Loading...</div>
+          <div *ngIf="subscriptionSuccess" class="text-green-500">Thank you for subscribing!</div>
+          <div *ngIf="subscriptionError" class="text-red-500">Please check your email and try again.</div>
+        </div>
+      </div>
+      
+      
+      
+    </div>
+    <div class="bg-gray-100">
+      <div class="mx-auto flex max-w-screen-xl flex-col gap-y-4 px-4 py-3 text-center text-gray-500 sm:flex-row sm:justify-between sm:text-left">
+        <div class="">© 2022 SiftBuyHub | All Rights Reserved</div>
+        <div class="">
+          <a class="" href="#">Privacy Policy</a>
+          <span>|</span>
+          <a class="" href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  

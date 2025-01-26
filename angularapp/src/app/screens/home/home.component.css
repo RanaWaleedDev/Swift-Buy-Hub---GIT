@@ -1,0 +1,160 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* styles.css */
+
+
+/* Add more styles as needed */
+
+.typing-animation {
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  animation: typing 6s steps(40) infinite; /* Repeat the animation indefinitely */
+  border-right: 2px solid transparent; /* Create a cursor effect */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+/* Your component's CSS file */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3); /* drop shadow */
+  max-width: 80%; /* Adjust max-width as needed */
+}
+
+.modal-header h2 {
+  margin-top: 0;
+}
+
+.modal-footer {
+  text-align: right;
+}
+
+
+
+
+.card-container {
+    width: 300px; /* Set a fixed width for each card container */
+  }
+  
+  .card {
+    width: 100%; /* Ensure that each card takes up the full width of its container */
+  }
+  
+  /* Additional styling for card elements */
+  
+  .category-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .card-container {
+    flex: 0 0 auto; /* Ensure each card has a fixed size */
+    width: 300px; /* Adjust the width as per your design */
+  }
+  
+
+  /* home.component.css */
+.Btn {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(#44ea76, #39fad7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+}
+
+.arrow path {
+  fill: white;
+}
+
+.text {
+  font-size: 0.7em;
+  width: 100px;
+  position: absolute;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -18px;
+  opacity: 0;
+  transition-duration: .7s;
+}
+
+.Btn:hover .text {
+  opacity: 1;
+  transition-duration: .7s;
+}
+
+.Btn:hover .arrow {
+  animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.parent:hover {
+  background-color: blue;
+  border: 4px solid black;
+}
+
+.parent:hover .child-paragraphs {
+  color: white;
+}
+
+
+/* Global dark theme styles */
+.dark-theme {
+  background-color: black;
+  color: white;
+}
+
+.dark-theme .listCarts {
+  background-color: #1f1f1f;
+  color: white;
+ 
+}
+
+.dark-theme .textCOlor {
+  color: white;
+ 
+}
+
+
+
+
+

@@ -1,0 +1,125 @@
+
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="/">
+      <img class="navbar-brand" id="logo" src="\assets\logo1.png" class="d-block">
+  </a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-8">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories/all">Categories</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link " aria-disabled="true">Disabled</a>
+        </li> -->
+      </ul>
+
+      <!-- Inserted Search Form -->
+      <form class="d-flex me-auto" role="search">
+        <input class="form-control custom-width-search me-2" type="search" placeholder="Search" aria-label="Search" (click)="navigateToSearchPage()">
+      </form>
+
+
+      <button class="button" (click)="navigateToSell()"  *ngIf="!isLoggedIn()">
+        <div class="button-overlay"></div>
+        <span>POST AD 
+          <mat-icon>add_circle_outline</mat-icon>
+         </span>
+      </button> 
+
+
+      <!-- Updated: Login/Logout Icons -->
+      <div class="d-flex align-items-center">
+
+        <button (click)="toggleDarkMode()" style="background: none; border: none;">
+          <mat-icon>{{ isDarkMode ? 'brightness_6' : 'brightness_4' }}</mat-icon>
+        </button>
+        
+
+        
+        <button *ngIf="isAdmin"(click)="navigateToAdminPanel()" style="background: none; border: none;">
+          <mat-icon> insert_chart_outlined</mat-icon>
+        </button>
+        <button (click)="navigateToNextPage()" style="background: none; border: none;">
+          <mat-icon>question_answer</mat-icon>
+        </button>
+        <!-- <button (click)="navigateToNextPage()" style="background: none; border: none;">
+          <mat-icon>translate</mat-icon>
+        </button>
+         -->
+        
+
+        <!-- <button class="btn btn-outline-primary me-2"(click)="navigateToLogin()">Login</button>
+        <button class="btn btn-outline-danger" (click)="navigateToSignUp()">SignUp</button> -->
+
+      
+        <div class="dropdown">
+          <mat-icon>gps_fixed</mat-icon>
+          <div class="dropdown-content">
+          <p>  <mat-icon>room</mat-icon> {{currentlocation}}</p>
+          </div>
+        </div>
+
+    
+       
+        
+        <!-- when logged in the user icon- drop down  -->
+        <div class="container-fluid" *ngIf="!isLoggedIn()">
+          <ul class="navbar-nav">
+            <!-- Avatar Dropdown -->
+            <li class="nav-item dropdown" [matMenuTriggerFor]="menu">
+              <a class="nav-link dropdown-toggle d-flex align-items-center">
+                <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
+                  height="40" width="40" alt="Avatar" loading="lazy" /> -->
+                  <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle"
+                  height="40" width="40" alt="Avatar" loading="lazy" />
+              </a>
+              <mat-menu #menu="matMenu" >
+                <button mat-menu-item (click)="settingnavigate()" ><mat-icon>perm_identity</mat-icon>My Profile</button>
+                <!-- <button mat-menu-item (click)="settingnavigate()"><mat-icon>settings</mat-icon>Settings</button> -->
+                <button mat-menu-item [routerLink]="['/pricing']">	<mat-icon> monetization_on</mat-icon>Pricing</button>
+                <button mat-menu-item  [routerLink]="['/faqs/users']">	<mat-icon>sms_failed</mat-icon>FAQ</button>
+                <mat-divider></mat-divider>
+                <!-- <button mat-menu-item >	<mat-icon>exit_to_app</mat-icon>Logout</button> -->
+                <button mat-menu-item (click)="logout()">
+                  <mat-icon>exit_to_app</mat-icon>
+                  Logout
+                </button>
+                
+              </mat-menu>
+            </li>
+          </ul>       
+        </div>
+
+                <!-- when logged out the user icon- drop down  -->
+         <div class="container-fluid" *ngIf="isLoggedIn()">
+                  <ul class="navbar-nav">
+                    <!-- Avatar Dropdown -->
+                    <li class="nav-item dropdown" [matMenuTriggerFor]="menu">
+                      <a class="nav-link dropdown-toggle d-flex align-items-center">
+                        <i class="fa fa-user"></i>
+                      </a>
+                      <mat-menu #menu="matMenu" >
+                        <button mat-menu-item (click)="navigateToLogin()"><mat-icon>perm_identity</mat-icon>Login</button>                      
+                        <button mat-menu-item (click)="navigateToSignUp()"><mat-icon>touch_app</mat-icon>SignUp</button>
+                                 
+                      </mat-menu>
+                    </li>
+                  </ul>       
+          </div>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</nav>
